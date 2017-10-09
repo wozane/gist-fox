@@ -1,7 +1,7 @@
-// const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: './src/index.jsx',
+  entry: './src/index.js',
   output: {
     filename: './dist/bundle-[hash].js',
   },
@@ -14,10 +14,9 @@ module.exports = {
   resolve: {
     extensions: ['.jsx', '.js', '.json'],
   },
-  /* plugins: [new HtmlWebpackPlugin({
+  plugins: [new HtmlWebpackPlugin({
     template: './src/index.html',
   })],
-  */
   devtool: 'source-map',
   devServer: {
     contentBase: './src',
