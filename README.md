@@ -4,3 +4,8 @@
 2. yarn add webpack webpack-dev-server path
 3. yarn add -D babel-loader babel-core babel-present-env babel-preset-es2015 babel-preset-react
 4. yarn add -D html-webpack-plugin
+5. yarn add react react-dom
+6. yarn add -D eslint eslint-config-airbnb eslint-loader eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react
+7. yarn add axios
+8. yarn add bulma
+9. yarn add -D node-sass sass-loader style-loader css-loader
