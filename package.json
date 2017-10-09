@@ -5,12 +5,15 @@
   "author": "aneta wozniak",
   "license": "MIT",
   "scripts": {
-    "start": "yarn && webpack-dev-server"
+    "start": "yarn && webpack-dev-server",
+    "lint": "eslint"
   },
   "dependencies": {
     "axios": "^0.16.2",
     "bulma": "^0.5.3",
+    "lodash": "^4.17.4",
     "path": "^0.12.7",
+    "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "webpack": "^3.6.0",

@@ -9,3 +9,5 @@
 7. yarn add axios
 8. yarn add bulma
 9. yarn add -D node-sass sass-loader style-loader css-loader
+10. yarn add lodash
+11. yarn add prop-types
