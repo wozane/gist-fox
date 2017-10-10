@@ -3,8 +3,8 @@ import GisFooter from './GistFooter'
 
 const GistBody = () => (
   <div>
-    <section className="container notification">Gist body
-      <div>Gist description</div>
+    <section>
+      <input className="input" type="text" placeholder="Gist description..." />
       <div>gist main
         <nav>toolbar
           <div>file name extension</div>
