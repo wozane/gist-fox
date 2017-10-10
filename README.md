@@ -1,4 +1,8 @@
-## create a react app with webpack
+## REACT APP WITH WEBPACK
+
+## steps
+
+
 
 1. yarn init
 2. yarn add webpack webpack-dev-server path
@@ -11,3 +15,4 @@
 9. yarn add -D node-sass sass-loader style-loader css-loader
 10. yarn add lodash
 11. yarn add prop-types
+12. yarn add react-router react-router-dom (<BrowserRouter />)
