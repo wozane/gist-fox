@@ -1,16 +1,24 @@
 import React from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import Navbar from './Navbar'
-import Gist from './Gist'
-import Footer from './Footer'
-// import { BrowserRouter } from 'react-router-dom'
+import GistsList from './GistsList'
+import GistView from './GistView'
+import AboutView from './AboutView'
+import Layout from './Layout'
+
 
 const App = () => (
-  <div className="container notification">
-    <Navbar />
-    <Gist />
-    <Footer />
-  </div>
+  <main>
+    <Router>
+      <div className="container">
+        <Layout>
+          <Route exact path="/gists/:id" component={GistView} />
+          <Route path="/gists" component={GistsList} />
+          <Route path="/about" component={AboutView} />
+        </Layout>
+      </div>
+    </Router>
+  </main>
 )
 
 export default App
