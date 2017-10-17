@@ -24,7 +24,13 @@ class GistView extends React.Component {
 
   renderGist() {
     if (this.state.gist) {
-      return <h2>{this.state.gist.description}</h2>
+      return (
+        <div>
+          <h2>{this.state.gist.description}</h2>
+          <p>Date: {this.state.gist.creaded_at}</p><br />
+          <p>{this.state.gist.content}</p>
+        </div>
+      )
     }
 
     return <span>Loading...</span>
