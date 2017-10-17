@@ -14,10 +14,10 @@ class GistList extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchGist()
+    this.fetchGists()
   }
 
-  fetchGist() {
+  fetchGists() {
     const apiUrl = 'https://private-anon-dc77e86d57-awapp.apiary-mock.com/gists'
     axios.get(apiUrl)
       .then((response) => {
