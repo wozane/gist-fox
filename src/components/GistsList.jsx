@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 import GistHeader from './GistHeader'
 
@@ -25,13 +26,22 @@ class GistList extends React.Component {
       })
   }
 
+  /* goToGist() {
+    console.log('gist was clicked')
+  } */
+
   render() {
     return (
       <div className="gist-list">
         <GistHeader />
-        <ul>
-          {this.state.gists.map(gist =>
-            <li key={gist.id}><a href={gist.self}>{gist.description} </a>{gist.created_at}</li>)}
+        <ul >
+          {this.state.gists.map(gist => (
+            <li key={gist.id}>
+              <Link to={gist.id}>
+                {gist.description}
+              </Link>
+              <p>Created at: {gist.created_at}</p>
+            </li>))}
         </ul>
       </div>
     )
