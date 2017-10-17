@@ -30,7 +30,8 @@ class GistList extends React.Component {
       <div className="gist-list">
         <GistHeader />
         <ul>
-          {this.state.gists.map(gist => <li key={gist.id}>{gist.description}</li>)}
+          {this.state.gists.map(gist =>
+            <li key={gist.id}><a href={gist.self}>{gist.description} </a>{gist.created_at}</li>)}
         </ul>
       </div>
     )
