@@ -12,7 +12,7 @@ const App = () => (
     <Router>
       <div className="container">
         <Layout>
-          <Route path="/gists/:id" component={GistView} />
+          <Route path="/gist/:id" component={GistView} />
           <Route exact path="/gists" component={GistsList} />
           <Route path="/about" component={AboutView} />
         </Layout>
