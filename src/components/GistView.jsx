@@ -2,8 +2,8 @@ import React from 'react'
 import axios from 'axios'
 
 class GistView extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
       gist: null,
@@ -11,11 +11,12 @@ class GistView extends React.Component {
   }
 
   componentDidMount() {
-    this.loadGist()
+    this.fetchGist()
   }
 
-  loadGist() {
-    axios.get('https://private-anon-dc77e86d57-awapp.apiary-mock.com/gists/id')
+  fetchGist() {
+    const { match: { params } } = this.props
+    axios.get(`https://private-anon-dc77e86d57-awapp.apiary-mock.com/gists/${params.id}`)
       .then((response) => {
         const gist = response.data
         this.setState({ gist })
