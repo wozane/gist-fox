@@ -17,7 +17,7 @@ class GistView extends React.Component {
   loadGist() {
     axios.get('https://private-anon-dc77e86d57-awapp.apiary-mock.com/gists/id')
       .then((response) => {
-        const gist = response.data.map(item => item)
+        const gist = response.data
         this.setState({ gist })
       })
   }

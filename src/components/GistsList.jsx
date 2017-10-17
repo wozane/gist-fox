@@ -21,14 +21,11 @@ class GistList extends React.Component {
     const apiUrl = 'https://private-anon-dc77e86d57-awapp.apiary-mock.com/gists'
     axios.get(apiUrl)
       .then((response) => {
-        const gists = response.data._embedded.gists.map(gist => gist)
+        // const { data: { _embedded: gists } } = response
+        const gists = response.data._embedded.gists
         this.setState({ gists })
       })
   }
-
-  /* goToGist() {
-    console.log('gist was clicked')
-  } */
 
   render() {
     return (
@@ -37,7 +34,7 @@ class GistList extends React.Component {
         <ul >
           {this.state.gists.map(gist => (
             <li key={gist.id}>
-              <Link to={gist.id}>
+              <Link to={`/gist/${gist.id}`}>
                 {gist.description}
               </Link>
               <p>Created at: {gist.created_at}</p>
