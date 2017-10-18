@@ -1,8 +1,9 @@
 import React from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 import GistHeader from './GistHeader'
+import { fetchGists } from '../helpers'
 
 class GistList extends React.Component {
   constructor() {
@@ -11,13 +12,14 @@ class GistList extends React.Component {
     this.state = {
       gists: [],
     }
+    this.fetchGists = this.fetchGists.bind(this)
   }
 
   componentDidMount() {
     this.fetchGists()
   }
 
-  fetchGists() {
+  /* fetchGists() {
     const apiUrl = 'https://private-anon-dc77e86d57-awapp.apiary-mock.com/gists'
     axios.get(apiUrl)
       .then((response) => {
@@ -25,7 +27,7 @@ class GistList extends React.Component {
         const gists = response.data._embedded.gists
         this.setState({ gists })
       })
-  }
+  } */
 
   render() {
     return (
