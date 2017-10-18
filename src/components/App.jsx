@@ -5,6 +5,7 @@ import GistsList from './GistsList'
 import GistView from './GistView'
 import AboutView from './AboutView'
 import Layout from './Layout'
+import HomePage from './HomePage'
 
 
 const App = () => (
@@ -12,6 +13,7 @@ const App = () => (
     <Router>
       <div className="container">
         <Layout>
+          <Route exact path="/" component={HomePage} />
           <Route path="/gist/:id" component={GistView} />
           <Route exact path="/gists" component={GistsList} />
           <Route path="/about" component={AboutView} />
