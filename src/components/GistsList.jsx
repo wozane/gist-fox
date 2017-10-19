@@ -1,5 +1,4 @@
 import React from 'react'
-// import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 import GistHeader from './GistHeader'
@@ -8,31 +7,22 @@ import { fetchGists } from '../helpers'
 class GistList extends React.Component {
   constructor() {
     super()
-
     this.state = {
       gists: [],
     }
-    this.fetchGists = this.fetchGists.bind(this)
   }
+
 
   componentDidMount() {
-    this.fetchGists()
+    fetchGists().then((response) => {
+      const gists = response.data._embedded.gists
+      this.setState({ gists })
+    })
   }
 
-  /* fetchGists() {
-    const apiUrl = 'https://private-anon-dc77e86d57-awapp.apiary-mock.com/gists'
-    axios.get(apiUrl)
-      .then((response) => {
-        // const { data: { _embedded: gists } } = response
-        const gists = response.data._embedded.gists
-        this.setState({ gists })
-      })
-  } */
-
-  render() {
-    return (
-      <div className="gist-list">
-        <GistHeader />
+  renderList() {
+    if (this.state.gists) {
+      return (
         <ul >
           {this.state.gists.map(gist => (
             <li key={gist.id}>
@@ -42,6 +32,17 @@ class GistList extends React.Component {
               <p>Created at: {gist.created_at}</p>
             </li>))}
         </ul>
+      )
+    }
+
+    return <span>Loading ... </span>
+  }
+
+  render() {
+    return (
+      <div className="gist-list">
+        <GistHeader />
+        <div>{this.renderList()}</div>
       </div>
     )
   }

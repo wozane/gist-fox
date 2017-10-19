@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Gist from './Gist'
 import { fetchGist } from '../helpers'
 
 class GistView extends React.Component {
@@ -9,32 +10,19 @@ class GistView extends React.Component {
     this.state = {
       gist: null,
     }
-
-    this.fetchGist = this.fetchGist.bind(this)
   }
 
   componentDidMount() {
-    this.fetchGist()
+    console.log(this.props)
+    fetchGist(this.props.match.params.id).then((response) => {
+      const gist = response.data
+      this.setState({ gist })
+    })
   }
-
-  /* fetchGist() {
-      const { match: { params } } = this.props
-      axios.get(`https://private-anon-dc77e86d57-awapp.apiary-mock.com/gists/${params.id}`)
-        .then((response) => {
-          const gist = response.data
-          this.setState({ gist })
-        })
-  } */
 
   renderGist() {
     if (this.state.gist) {
-      return (
-        <div>
-          <h2>{this.state.gist.description}</h2>
-          <p>Date: {this.state.gist.creaded_at}</p><br />
-          <p>{this.state.gist.content}</p>
-        </div>
-      )
+      return <Gist gist={this.state.gist} />
     }
 
     return <span>Loading...</span>
