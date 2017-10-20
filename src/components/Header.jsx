@@ -1,7 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Header = () => (
-  <nav className="navbar is-dark"> Header </nav>
+  <div>
+    <nav className="navbar is-light">
+      <Link to="/">Home</Link>
+    </nav>
+  </div>
 )
 
 export default Header
