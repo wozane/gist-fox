@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Gist from './Gist'
+import EditGist from './EditGist'
 import { fetchGist } from '../helpers'
 
 class GistView extends React.Component {
@@ -9,6 +10,7 @@ class GistView extends React.Component {
 
     this.state = {
       gist: null,
+      isOpen: false,
     }
   }
 
@@ -20,15 +22,24 @@ class GistView extends React.Component {
     })
   }
 
+  handleFormOpen() {
+    console.log('open form')
+    this.setState({ isOpen: true })
+  }
+
   renderGist() {
     if (this.state.gist) {
-      return <Gist gist={this.state.gist} />
+      return <Gist gist={this.state.gist} openEditForm={() => this.handleFormOpen()} />
     }
-
     return <span>Loading...</span>
   }
 
   render() {
+    if (this.state.isOpen) {
+      return (
+        <EditGist />
+      )
+    }
     return (
       <div className="gist-view">{this.renderGist()}</div>
     )
