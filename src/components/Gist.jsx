@@ -7,8 +7,17 @@ export default function (props) {
       <h2>{props.gist.description}</h2>
       <p>Date: {props.gist.creaded_at}</p><br />
       <p>{props.gist.content}</p>
-      <button onClick={props.openEditForm}>Edit</button>
-      <button>Delete</button>
+      <button
+        className="button is-warning"
+        onClick={props.openEditForm}
+      >
+        Edit
+      </button>
+      <button
+        className="button is-danger"
+      >
+        Delete
+      </button>
     </div>
   )
 }
