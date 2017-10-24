@@ -1,17 +1,30 @@
 import React from 'react'
 
 const EditGist = (props) => {
-  console.log('edit gist open')
+  console.log('edit gist form open')
+  console.log(props)
   return (
-    <form>
-      <h2>{props.gist.description}</h2>
-      <label htmlFor={props.gist.content}>
-        <input
-          type="text"
-          value={props.gist.content}
-          onChange={props.changeContent}
-        />
-      </label>
+    <form /* onSubmit={this.handleSubmit} */>
+      <label>{props.gist.description}</label><br />
+      <textarea
+        type="text"
+        defaultValue={props.gist.content}
+        onChange={props.editGist}
+      /><br />
+      <div>
+        <button
+          className="button is-primary"
+          onClick={props.onFormSubmit}
+        >
+          Submit
+        </button>
+        <button
+          className="button is-danger"
+          onClick={props.onFormClose}
+        >
+          Cancel
+        </button>
+      </div>
     </form>
   )
 }
