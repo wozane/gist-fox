@@ -34,7 +34,6 @@ class GistList extends React.Component {
         </ul>
       )
     }
-
     return <span>Loading ... </span>
   }
 
