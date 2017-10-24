@@ -8,6 +8,7 @@ export default function (props) {
       <p>Date: {props.gist.creaded_at}</p><br />
       <p>{props.gist.content}</p>
       <button onClick={props.openEditForm}>Edit</button>
+      <button>Delete</button>
     </div>
   )
 }

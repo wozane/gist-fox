@@ -33,11 +33,14 @@ class GistView extends React.Component {
     }
     return <span>Loading...</span>
   }
+  renderEditGist() {
+    return <EditGist gist={this.state.gist} />
+  }
 
   render() {
     if (this.state.isOpen) {
       return (
-        <EditGist />
+        <div className="gist-edit">{this.renderEditGist()}</div>
       )
     }
     return (
