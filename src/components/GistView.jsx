@@ -3,7 +3,7 @@ import React from 'react'
 
 import Gist from './Gist'
 import EditGist from './EditGist'
-import { fetchGist } from '../helpers'
+import { fetchGist, updateGist } from '../helpers'
 
 class GistView extends React.Component {
   constructor(props) {
@@ -39,10 +39,14 @@ class GistView extends React.Component {
     this.setState({ isOpen: true })
   }
 
-  /*   handleGistChange() {
-    console.log('updating gist')
-
-  } */
+  handleUpdate() {
+    updateGist(this.props.match.params.id)
+      .then((response) => {
+        const gist = response.data
+        this.setState({ gist })
+      }).then(this.closeForm())
+    console.log('gist updated')
+  }
 
   renderGist() {
     if (this.state.gist) {
@@ -61,7 +65,7 @@ class GistView extends React.Component {
       <EditGist
         id={this.state.gist.id}
         gist={this.state.gist}
-        onFormSubmit={() => this.handleSubmit()}
+        editClick={() => this.handleUpdate()}
         onFormClose={() => this.handleFormClose()}
       />
     )
