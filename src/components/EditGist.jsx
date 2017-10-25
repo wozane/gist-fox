@@ -2,9 +2,15 @@ import React from 'react'
 
 const EditGist = (props) => {
   console.log('edit gist form open')
-  console.log(props)
+
+  handleSubmit() {
+    this.props.onFormSubmit({
+      
+    })
+  }
+
   return (
-    <form /* onSubmit={this.handleSubmit} */>
+    <form>
       <label>{props.gist.description}</label><br />
       <textarea
         type="text"
@@ -14,7 +20,7 @@ const EditGist = (props) => {
       <div>
         <button
           className="button is-primary"
-          onClick={props.onFormSubmit}
+          onClick={this.handleSubmit}
         >
           Submit
         </button>
