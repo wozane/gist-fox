@@ -13,3 +13,11 @@ export function fetchGist(id) {
 export function updateGist(id) {
   return axios.patch(`${apiUrl}/gists/${id}`, { content: 'Updated file contents' })
 }
+
+export function deleteGist(id) {
+  return axios.delete(`${apiUrl}/gists/${id}`)
+}
+
+export function createGist() {
+  return axios.post(`${apiUrl}/gists`, { description: 'Description of Gist', content: 'String content' })
+}

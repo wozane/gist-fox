@@ -1,9 +1,9 @@
 import React from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 
 import Gist from './Gist'
 import EditGist from './EditGist'
-import { fetchGist, updateGist } from '../helpers'
+import { fetchGist, updateGist, deleteGist } from '../helpers'
 
 class GistView extends React.Component {
   constructor(props) {
@@ -50,7 +50,7 @@ class GistView extends React.Component {
 
   handleDeleteClick() {
     console.log('gist deleted')
-    axios.delete('https://private-anon-dc77e86d57-awapp.apiary-mock.com/gists/id')
+    deleteGist(this.props.match.params.id)
       .then(response => console.log(response))
   }
 
