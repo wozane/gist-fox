@@ -46,12 +46,14 @@ class GistView extends React.Component {
         this.setState({ gist })
       }).then(this.closeForm())
     console.log('gist updated')
+    alert('gist updated')
   }
 
   handleDeleteClick() {
     console.log('gist deleted')
     deleteGist(this.props.match.params.id)
       .then(response => console.log(response))
+    alert('gist deleted')
   }
 
   renderGist() {

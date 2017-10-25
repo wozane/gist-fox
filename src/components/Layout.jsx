@@ -4,7 +4,7 @@ import Header from './Header'
 import Footer from './Footer'
 
 const Layout = props => (
-  <div className="layout">
+  <div className="container is-fluid">
     <Header />
     {props.children}
     <Footer />
