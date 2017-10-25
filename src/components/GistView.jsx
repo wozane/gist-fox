@@ -1,5 +1,5 @@
 import React from 'react'
-// import axios from 'axios'
+import axios from 'axios'
 
 import Gist from './Gist'
 import EditGist from './EditGist'
@@ -48,6 +48,12 @@ class GistView extends React.Component {
     console.log('gist updated')
   }
 
+  handleDeleteClick() {
+    console.log('gist deleted')
+    axios.delete('https://private-anon-dc77e86d57-awapp.apiary-mock.com/gists/id')
+      .then(response => console.log(response))
+  }
+
   renderGist() {
     if (this.state.gist) {
       return (
@@ -55,6 +61,7 @@ class GistView extends React.Component {
           id={this.state.gist.id}
           gist={this.state.gist}
           openEditForm={() => this.handleEditForm()}
+          deleteClick={() => this.handleDeleteClick()}
         />
       )
     }

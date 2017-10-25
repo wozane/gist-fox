@@ -15,6 +15,7 @@ export default function (props) {
       </button>
       <button
         className="button is-danger"
+        onClick={props.deleteClick}
       >
         Delete
       </button>
