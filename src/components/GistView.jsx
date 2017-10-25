@@ -22,7 +22,7 @@ class GistView extends React.Component {
     })
   }
 
-  handleFormOpen() {
+  handleEditForm() {
     console.log('open form')
     this.openForm()
   }
@@ -50,7 +50,7 @@ class GistView extends React.Component {
         <Gist
           id={this.state.gist.id}
           gist={this.state.gist}
-          openEditForm={() => this.handleFormOpen()}
+          openEditForm={() => this.handleEditForm()}
         />
       )
     }
