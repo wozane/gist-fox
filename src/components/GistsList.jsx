@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import GistHeader from './GistHeader'
-import { fetchGists } from '../helpers'
+import { fetchGists, createGist } from '../helpers'
 
 class GistList extends React.Component {
   constructor() {
@@ -20,18 +20,30 @@ class GistList extends React.Component {
     })
   }
 
+  handleCreate() {
+    createGist().then(response => console.log(response))
+  }
+
   renderList() {
     if (this.state.gists) {
       return (
-        <ul >
-          {this.state.gists.map(gist => (
-            <li key={gist.id}>
-              <Link to={`/gist/${gist.id}`}>
-                {gist.description}
-              </Link>
-              <p>Created at: {gist.created_at}</p>
-            </li>))}
-        </ul>
+        <div>
+          <ul >
+            {this.state.gists.map(gist => (
+              <li key={gist.id}>
+                <Link to={`/gist/${gist.id}`}>
+                  {gist.description}
+                </Link>
+                <p>Created at: {gist.created_at}</p>
+              </li>))}
+          </ul>
+          <button
+            className="button is-primary"
+            onClick={this.handleCreate()}
+          >
+            Create gist
+          </button>
+        </div>
       )
     }
     return <span>Loading ... </span>
