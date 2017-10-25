@@ -9,3 +9,7 @@ export function fetchGists() {
 export function fetchGist(id) {
   return axios.get(`${apiUrl}/gists/${id}`)
 }
+
+export function updateGist(id) {
+  return axios.patch(`${apiUrl}/gists/${id}`, { content: 'Updated file contents' })
+}

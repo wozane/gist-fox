@@ -3,24 +3,17 @@ import React from 'react'
 const EditGist = (props) => {
   console.log('edit gist form open')
 
-  handleSubmit() {
-    this.props.onFormSubmit({
-      
-    })
-  }
-
   return (
-    <form>
+    <div>
       <label>{props.gist.description}</label><br />
       <textarea
         type="text"
         defaultValue={props.gist.content}
-        onChange={props.editGist}
       /><br />
       <div>
         <button
           className="button is-primary"
-          onClick={this.handleSubmit}
+          onClick={props.editClick}
         >
           Submit
         </button>
@@ -31,7 +24,7 @@ const EditGist = (props) => {
           Cancel
         </button>
       </div>
-    </form>
+    </div>
   )
 }
 
