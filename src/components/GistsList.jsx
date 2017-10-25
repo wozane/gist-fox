@@ -22,6 +22,7 @@ class GistList extends React.Component {
 
   handleCreate() {
     createGist().then(response => console.log(response))
+    alert('gist created')
   }
 
   renderList() {
@@ -37,12 +38,6 @@ class GistList extends React.Component {
                 <p>Created at: {gist.created_at}</p>
               </li>))}
           </ul>
-          <button
-            className="button is-primary"
-            onClick={this.handleCreate()}
-          >
-            Create gist
-          </button>
         </div>
       )
     }
@@ -54,6 +49,12 @@ class GistList extends React.Component {
       <div className="gist-list">
         <GistHeader />
         <div>{this.renderList()}</div>
+        <button
+          className="button is-primary is-small"
+          onClick={() => this.handleCreate()}
+        >
+          Create
+        </button>
       </div>
     )
   }
