@@ -9,6 +9,12 @@ export default function (props) {
       <p>{props.gist.content}</p>
       <button
         className="button is-warning"
+        onClick={props.starGist}
+      >
+        Give it a star
+      </button>
+      <button
+        className="button is-primary"
         onClick={props.openEditForm}
       >
         Edit
