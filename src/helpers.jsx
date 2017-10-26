@@ -21,3 +21,7 @@ export function deleteGist(id) {
 export function createGist() {
   return axios.post(`${apiUrl}/gists`, { description: 'Description of Gist', content: 'String content' })
 }
+
+export function starGist(id) {
+  return axios.put(`${apiUrl}/gists/${id}/star`)
+}
