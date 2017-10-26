@@ -25,3 +25,8 @@ export function createGist() {
 export function starGist(id) {
   return axios.put(`${apiUrl}/gists/${id}/star`)
 }
+
+export function fetchStarGist(id) {
+  return axios.get(`${apiUrl}/gists/${id}/star`)
+    .then(response => console.log(response))
+}
