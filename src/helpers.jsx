@@ -30,3 +30,8 @@ export function fetchStarGist(id) {
   return axios.get(`${apiUrl}/gists/${id}/star`)
     .then(response => console.log(response))
 }
+
+export function deleteStar(id) {
+  return axios.delete(`${apiUrl}/gists/${id}/star`)
+    .then(response => console.log(response))
+}

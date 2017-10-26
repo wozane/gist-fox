@@ -3,7 +3,7 @@ import React from 'react'
 
 import Gist from './Gist'
 import EditGist from './EditGist'
-import { fetchGist, updateGist, deleteGist, starGist } from '../helpers'
+import { fetchGist, updateGist, deleteGist, starGist, deleteStar } from '../helpers'
 
 class GistView extends React.Component {
   constructor(props) {
@@ -57,10 +57,25 @@ class GistView extends React.Component {
     alert('🔥 gist deleted 🔥')
   }
 
+  gistStarred() {
+    this.setState({ star: true })
+  }
+
+  gistUnstarred() {
+    this.setState({ star: false })
+  }
+
   handleStarGist() {
     starGist(this.props.match.params.id)
       .then(response => console.log(response))
-    this.setState({ star: true })
+    this.gistStarred()
+    alert('⭐️⭐️⭐️')
+  }
+
+  handleUnstarGist() {
+    deleteStar(this.props.match.params.id)
+    this.gistUnstarred()
+    alert('💥💥💥')
   }
 
   renderGist() {
@@ -73,6 +88,7 @@ class GistView extends React.Component {
           openEditForm={() => this.handleEditForm()}
           deleteClick={() => this.handleDeleteClick()}
           starGist={() => this.handleStarGist()}
+          unstarGist={() => this.handleUnstarGist()}
         />
       )
     }
