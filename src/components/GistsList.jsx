@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import GistHeader from './GistHeader'
-import { fetchGists, createGist } from '../helpers'
+import { fetchGists, createGist, fetchStarGist } from '../helpers'
 
 class GistList extends React.Component {
   constructor() {
@@ -44,11 +44,30 @@ class GistList extends React.Component {
     return <span>Loading ... </span>
   }
 
+  renderStarList() {
+    if (fetchStarGist()) {
+      return (
+        <div>
+          <ul>
+            {this.state.gists.map(gist => (
+              <li key={gist.id}>
+                <Link to={`/gist/${gist.id}/star`}>
+                  Starred gists
+                </Link>
+              </li>))}
+          </ul>
+        </div>
+      )
+    }
+    return <span>Loading ... </span>
+  }
+
   render() {
     return (
       <div className="gist-list">
         <GistHeader />
         <div>{this.renderList()}</div>
+        <div>{this.renderStarList()}</div>
         <button
           className="button is-primary is-small"
           onClick={() => this.handleCreate()}
