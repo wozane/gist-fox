@@ -8,19 +8,36 @@ import Layout from './Layout'
 import HomePage from './HomePage'
 
 
-const App = () => (
-  <main>
-    <Router>
-      <div className="container">
-        <Layout>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/gists" component={GistsList} />
-          <Route path="/gist/:id" component={GistView} />
-          <Route path="/about" component={AboutView} />
-        </Layout>
-      </div>
-    </Router>
-  </main>
-)
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { hasError: false }
+  }
+
+  componentDidCatch(error, info) {
+    this.setState({ hasError: true })
+    console.log(error, info)
+  }
+  render() {
+    if (this.state.hasError) {
+      return <h2>Something went wrong</h2>
+    }
+    return (
+      <main>
+        <Router>
+          <div className="container">
+            <Layout>
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/gists" component={GistsList} />
+              <Route path="/gist/:id" component={GistView} />
+              <Route path="/about" component={AboutView} />
+            </Layout>
+          </div>
+        </Router>
+      </main>
+    )
+  }
+}
 
 export default App
