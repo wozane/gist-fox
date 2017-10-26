@@ -12,6 +12,7 @@ class GistView extends React.Component {
     this.state = {
       gist: null,
       isOpen: false,
+      star: false,
     }
   }
 
@@ -59,7 +60,7 @@ class GistView extends React.Component {
   handleStarGist() {
     starGist(this.props.match.params.id)
       .then(response => console.log(response))
-    alert('gist got a ⭐️ ')
+    this.setState({ star: true })
   }
 
   renderGist() {
@@ -68,6 +69,7 @@ class GistView extends React.Component {
         <Gist
           id={this.state.gist.id}
           gist={this.state.gist}
+          star={this.state.star}
           openEditForm={() => this.handleEditForm()}
           deleteClick={() => this.handleDeleteClick()}
           starGist={() => this.handleStarGist()}

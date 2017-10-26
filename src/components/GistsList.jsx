@@ -35,7 +35,6 @@ class GistList extends React.Component {
                 <Link to={`/gist/${gist.id}`}>
                   {gist.description}
                 </Link>
-                <p>Created at: {gist.created_at}</p>
               </li>))}
           </ul>
         </div>
