@@ -4,13 +4,14 @@ const EditGist = (props) => {
   console.log('edit gist form open')
 
   return (
-    <div>
-      <label>{props.gist.description}</label><br />
+    <div className="control">
+      <label className="title">{props.gist.description}</label><br />
       <textarea
+        className="textarea is-warning"
         type="text"
         defaultValue={props.gist.content}
       /><br />
-      <div>
+      <div className="control">
         <button
           className="button is-primary"
           onClick={props.editClick}

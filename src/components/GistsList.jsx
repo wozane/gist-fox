@@ -28,10 +28,10 @@ class GistList extends React.Component {
   renderList() {
     if (this.state.gists) {
       return (
-        <div>
-          <ul >
+        <div className="control">
+          <ul>
             {this.state.gists.map(gist => (
-              <li key={gist.id}>
+              <li key={gist.id} className="label">
                 <Link to={`/gist/${gist.id}`}>
                   {gist.description}
                 </Link>
@@ -46,10 +46,10 @@ class GistList extends React.Component {
   renderStarList() {
     if (fetchStarGist()) {
       return (
-        <div>
+        <div className="control">
           <ul>
             {this.state.gists.map(gist => (
-              <li key={gist.id}>
+              <li key={gist.id} className="label">
                 <Link to={`/gist/${gist.id}/star`}>
                   Starred gists
                 </Link>
@@ -63,15 +63,17 @@ class GistList extends React.Component {
 
   render() {
     return (
-      <div className="gist-list">
+      <div className="box">
         <GistHeader />
-        <div>{this.renderList()}</div>
-        <div>{this.renderStarList()}</div>
+        <div className="content">
+          <div className="container is-medium">{this.renderList()}</div>
+          <div className="container is-medium">{this.renderStarList()}</div>
+        </div>
         <button
-          className="button is-primary is-small"
+          className="button is-primary"
           onClick={() => this.handleCreate()}
         >
-          Create
+          Create new gist
         </button>
       </div>
     )

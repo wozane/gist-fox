@@ -1,7 +1,7 @@
 import React from 'react'
 
 const GistHeader = () => (
-  <nav>gist header</nav>
+  <nav className="subtitle">List of gists</nav>
 )
 
 export default GistHeader
