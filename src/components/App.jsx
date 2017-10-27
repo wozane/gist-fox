@@ -30,7 +30,7 @@ class App extends React.Component {
             <Layout>
               <Route exact path="/" component={HomePage} />
               <Route exact path="/gists" component={GistsList} />
-              <Route path="/gist/:id" component={GistView} />
+              <Route path="/gists/:id" component={GistView} />
               <Route path="/about" component={AboutView} />
             </Layout>
           </div>

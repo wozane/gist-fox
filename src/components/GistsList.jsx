@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import GistHeader from './GistHeader'
-import { fetchGists, createGist, fetchStarGist } from '../helpers'
+import { fetchGists, createGist } from '../helpers'
 
 class GistList extends React.Component {
   constructor() {
@@ -44,7 +44,7 @@ class GistList extends React.Component {
   }
 
   renderStarList() {
-    if (fetchStarGist()) {
+    if (this.state.gists.length > 0) {
       return (
         <div className="control">
           <ul>
