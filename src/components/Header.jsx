@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom'
 const Header = () => (
   <div>
     <nav className="navbar is-light">
-      <Link to="/">Home</Link>
+      <div className="level-left">
+        <Link to="/">Get Home</Link>
+      </div>
     </nav>
   </div>
 )

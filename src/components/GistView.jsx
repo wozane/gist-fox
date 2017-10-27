@@ -84,6 +84,7 @@ class GistView extends React.Component {
         <Gist
           id={this.state.gist.id}
           gist={this.state.gist}
+          date={this.state.gist.created_at}
           star={this.state.star}
           openEditForm={() => this.handleEditForm()}
           deleteClick={() => this.handleDeleteClick()}
